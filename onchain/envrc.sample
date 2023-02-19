@@ -1,0 +1,6 @@
+layout node
+
+export ARB_URL=""
+export ARB_BLOCK=
+export ETHERSCAN_API_KEY=
+export PRIV_KEY=

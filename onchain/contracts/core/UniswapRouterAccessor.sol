@@ -27,7 +27,7 @@ contract UniswapRouterAccessor is ERC721, Owned {
     ) ERC721("UniswapRouterAccessor", "URA") Owned(msg.sender) {
         //set parameters
         fee = 3000;
-        buyUsdcAmount = 2000 * 1e6;
+        buyUsdcAmount;
         hasPosition = false;
         //set addresses
         router = ISwapRouter(_router);
@@ -38,6 +38,11 @@ contract UniswapRouterAccessor is ERC721, Owned {
         usdc.safeApprove(_router, type(uint256).max);
         //mint
         _mint(msg.sender, tokenId);
+    }
+
+    /* ========== VIEW FUNCTIONS ========== */
+    function getBalance() external view returns (uint256, uint256) {
+        return (weth.balanceOf(address(this)), usdc.balanceOf(address(this)));
     }
 
     /* ========== OWNERS FUNCTIONS ========== */

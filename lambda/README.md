@@ -1,66 +1,23 @@
-# UniswapTechnicalBot/onchain
+# UniswapTechnicalBot/lambda
 
-## Install
+## How to execute
 
-### direnv
+node index.js
 
-Recommend **direnv**
+## Deploy lambda
 
-Mac OS
+Copy index.js and paste lambda.
 
-```
-brew install direnv
-```
-
-Other OS
+comment out `main function` and comment in `handler`
 
 ```
-git clone https://github.com/direnv/direnv
-cd direnv
-sudo make install
-```
+before
 
-Copy to **.envrc** and setup
+// exports.handler = async (event) => {
+main = async () => {
 
-```
-cp .envrc.sample .envrc
-direnv allow
-```
+after
 
-Passed path to node_modules, you don't need to use "npx"
-
-### npm
-
-To run hardhat script
-
-```
-npm install
-```
-
-### foundry
-
-To install Foundry for Testing (assuming a Linux or macOS system)
-
-```
-curl -L https://foundry.paradigm.xyz | bash
-```
-
-This will download foundryup. To start Foundry, run
-
-```
-foundryup
-```
-
-To install dependencies
-
-```
-forge install
-```
-
-## Usage
-
-Testing
-
-```
-forge test -vv --fork-url ${ARB_URL} --fork-block-number ${ARB_BLOCK}
+exports.handler = async (event) => {
+// main = async () => {
 ```
